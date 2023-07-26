@@ -15,35 +15,48 @@ const fetch = require("node-fetch");
 
 // const readline = require("readline");
 
-const arg = process.argv[2];
-let type = "";
+// const arg = process.argv[2];
+// let type = "";
 
-if (arg.indexOf("--year") === 0) {
-  type = "year";
-} else if (arg.indexOf("--math") === 0) {
-  type = "number";
-} else if (arg.indexOf("--trivia") === 0) {
-  type = "trivia";
-}
+// if (arg.indexOf("--year") === 0) {
+//   type = "year";
+// } else if (arg.indexOf("--math") === 0) {
+//   type = "number";
+// } else if (arg.indexOf("--trivia") === 0) {
+//   type = "trivia";
+// }
 
-const equalSign = arg.search("=");
-if (equalSign === -1) {
-  console.log("nie ma");
-}
+// const equalSign = arg.search("=");
+// if (equalSign === -1) {
+//   console.log("nie ma");
+// }
 
-const number = arg.slice(equalSign + 1);
-if ((number === "" || isNaN(Number(number)))) {
-  console.log(number);
-  return;
-}
+// const number = arg.slice(equalSign + 1);
+// if (number === "" || isNaN(Number(number))) {
+//   console.log(number);
+//   return;
+// }
 
-fetch(`http://numbersapi.com/${number}/${type}?json`)
-  .then((resp) => {
-    console.log(resp.ok);
-    if (resp.ok) {
-      return resp.json();
-    }
-    return;
-  })
-  .then((data) => console.log(data.text))
-  .catch((err) => console.log(err));
+// fetch(`http://numbersapi.com/${number}/${type}?json`)
+//   .then((resp) => {
+//     console.log(resp.ok);
+//     if (resp.ok) {
+//       return resp.json();
+//     } else {
+//       throw new Error(resp.status);
+//     }
+//   })
+//   .then((data) => console.log(data.text))
+//   .catch((err) => console.log(err));
+
+// ZADANIE - TODO LIST ---------------
+const handleCommand = require('./handleCommand');
+
+var parseArgs = require("minimist");
+
+const command = parseArgs(process.argv);
+delete command._;
+
+
+
+handleCommand(command);
