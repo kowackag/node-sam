@@ -14,9 +14,55 @@
 //   )
 //   .then((result) => console.table(result));
 // console.log(test);
+alert(1);
+const firstBook = {
+  title: "The Last Kingdom",
+  number: {
+    first: 1,
+    second: 2,
+  },
+};
+
+let {
+  title,
+  number: { first, second: druga = 5 },
+} = firstBook;
+
+console.log(777777777777, druga);
+
 console.log("----------------------------------------------------------");
-console.log(process.argv);
+// console.log(process.argv);
+let person1 = { name: "Adam" };
+let person2 = person1; // przypisanie referencji do tego samego obiektu
+console.log(person1); // {name: "Adam"};
+console.log(person2); // {name: "Adam"};
+person2.name = "Jan"; // przypisanie nowej wartości
+console.log(person1); // {name: "Jan"};
+console.log(person2); // {name: "Jan"};
+console.log(1, person1 === person2);
+let person3 = { name: "Adam" };
+let person4 = { name: "Adam" }; // tu już nie ma przypisania więc tworzony jest nowy obiekt
+console.log(2, person3 === person4); // false => bo porównujemy referencję do obiektu
 console.log("----------------------------------------------------------");
+
+function checkStorage(available, ordered) {
+  // Change code below this line
+
+  if (ordered === 0) return "Your order is empty!";
+  if (ordered > available)
+    return "Your order is too large, not enough goods in stock!";
+  return "The order is accepted, our manager will contact you";
+
+  // Change code above this line
+}
+console.log(checkStorage(4, 10));
+console.log(checkStorage(4, 0));
+console.log(checkStorage(14, 10));
+
+const arr = [1, 3, 4, 0].filter((item) => item > 2); // => [3,4]
+
+console.log(arr);
+
 // fs.readdir(__dirname)
 //   .then((files) => {
 //     return Promise.all(
@@ -71,16 +117,16 @@ const logFile = program.opts().file;
 const mind = Math.floor(Math.random() * 10) + 1;
 
 const isValid = (value) => {
-  if (isNaN(value)) {
-    console.log("Wprowadź liczbę".red);
-    return false;
-  }
-  if (value < 1 || value > 10) {
-    console.log("Wprowadz liczbę z przedziału 1-10".red);
-    return false;
-  }
+  if (isNaN(value)) console.log("Wprowadź liczbę".red);
+  console.log("Wprowadź liczbę".red);
+  //   return false;
 
-  return true;
+  // if (value < 1 || value > 10) {
+  //   console.log("Wprowadz liczbę z przedziału 1-10".red);
+  //   return false;
+  // }
+
+  // return true;
 };
 
 const log = async (data) => {
