@@ -5,14 +5,15 @@
   "main": "files.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node files.js",
-    "start:dev": "nodemon files.js"
+    "start": "node express/app.js",
+    "start:dev": "nodemon express/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^11.0.0",
+    "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "nodemon": "^3.0.1"
   }

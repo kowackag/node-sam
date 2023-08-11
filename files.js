@@ -14,21 +14,8 @@
 //   )
 //   .then((result) => console.table(result));
 // console.log(test);
-alert(1);
-const firstBook = {
-  title: "The Last Kingdom",
-  number: {
-    first: 1,
-    second: 2,
-  },
-};
 
-let {
-  title,
-  number: { first, second: druga = 5 },
-} = firstBook;
 
-console.log(777777777777, druga);
 
 console.log("----------------------------------------------------------");
 // console.log(process.argv);
