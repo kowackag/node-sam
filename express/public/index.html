@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form class="form">
+        <img src="/oop.jpg">
+        <input id="nameInput" type="text">
+        <input id="surnameInput" type="text">
+        <button class="submit">submit</button>
+    </form>
+    <a href="">Jestem odnośnikiem</a>
+    <script>
+        const nameInput = document.querySelector('#nameInput');
+        const surnameInput = document.querySelector('#surnameInput');
+        const form = document.querySelector('.form');
+        const a = document.querySelector('a');
+
+        // -------------------------encodeURIComponent--------------------
+
+
+        // form.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     const name = nameInput.value;
+        //     const surname = surnameInput.value;
+        //     const url = `http://localhost:3000/?name=${encodeURIComponent(name)}&surname=${encodeURIComponent(surname)}`;
+
+        //     a.setAttribute('href', url);
+        // })
+
+        //--------------------------URLSearchParams------------------------------------
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = nameInput.value;
+            const surname = surnameInput.value;
+            const params = new URLSearchParams({ name, surname });
+            const url = `http://localhost:3000/?${params}`;
+
+            a.setAttribute('href', url);
+        })
+
+    </script>
+</body>
+
+</html>
